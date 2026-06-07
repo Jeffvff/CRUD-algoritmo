@@ -1,5 +1,7 @@
 package Application;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -8,14 +10,22 @@ public class Medicamento {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
+        try(FileWriter arq = new FileWriter("ListaMedicamento.txt");) {
+            System.out.println("Lista Medicamento foi criado.");
+            System.out.println();
+            arq.write("Lista de medicamentos");
+            arq.write(System.lineSeparator());
+            arq.write(System.lineSeparator());
+        } catch (IOException e){
+            System.out.println("Nâo foi possivel criar o arquivo");
+        }
+
         String[] listaHorario = new String[100];
         String[] listaDesc = new String[100];
         String[] listaNome = new String [100];
 
 
         int menuInicialMedicamento;
-
-
 
         System.out.printf("[1] - Adicionar medicamento.%n[0] - Voltar.%n");
         System.out.print("Escolha: ");
@@ -78,6 +88,21 @@ public class Medicamento {
                 char menuAER;
 
                 do {
+                    try(FileWriter arq = new FileWriter("ListaMedicamento.txt");) {
+                        arq.write("Lista de medicamento");
+                        arq.write(System.lineSeparator());
+                        arq.write(System.lineSeparator());
+                        for (int i = 0; i < listaHorario.length; i++) {
+                            if (listaHorario[i] != null) {
+                                String temp = String.format("%s | %s | %s%n",listaHorario[i], listaNome[i], listaDesc[i]);
+                                arq.write(temp);
+                            }
+                        }
+                    } catch (IOException e){
+                        System.out.println("Nâo foi possivel atualizar o arquivo!!");
+                    }
+
+
                     for (int i = 0; i < listaHorario.length; i++) {
                         if (listaHorario[i] != null) {
                             System.out.printf("[%d] - | %s | %s | %s%n", i + 1, listaHorario[i], listaNome[i], listaDesc[i]);
@@ -87,6 +112,7 @@ public class Medicamento {
                     System.out.print("Selecione: ");
                     menuAER = sc.nextLine().charAt(0);
                     menuAER = Character.toUpperCase(menuAER);
+
                     switch (menuAER) {
                         case 'A':
                             do {

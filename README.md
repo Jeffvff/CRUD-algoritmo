@@ -96,16 +96,6 @@ ProgramasListas.java
 
 ---
 
-## 📸 Captura de Tela
-
-Abaixo está uma captura de tela da aplicação durante o desenvolvimento:
-
-![Captura de Tela do Sistema](./assets/vida-plus-screenshot.png)
-
-> Caso a imagem ainda não esteja no repositório, adicione a captura enviada na pasta `assets` para exibição automática no README.
-
----
-
 ## 🎯 Conceitos Aplicados
 
 Durante o desenvolvimento foram utilizados os seguintes conceitos:

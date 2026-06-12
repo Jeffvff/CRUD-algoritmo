@@ -118,12 +118,16 @@ public class ProgramasListas {
             System.out.println("| [A] - Adicionar | [E] - Editar | [R] - Remover | [S] - Sair");
             System.out.print("Selecione: ");
             String input = sc.nextLine().trim();
-            if(input.isEmpty()) continue;
+            if (input.isEmpty())
+                continue;
             menuAER = Character.toUpperCase(input.charAt(0));
 
             switch (menuAER) {
                 case 'A':
-                    if (qtd >= 100) { System.out.println("Lista cheia!"); break; }
+                    if (qtd >= 100) {
+                        System.out.println("Lista cheia!");
+                        break;
+                    }
                     System.out.print("Insira o nome do medicamento: ");
                     String nome = sc.nextLine().trim();
                     String relogio = lerRelogio(sc);
@@ -184,8 +188,10 @@ public class ProgramasListas {
             System.out.print("Insira somente as horas: ");
             hora = sc.nextInt();
             sc.nextLine();
-            if (hora >= 0 && hora <= 23) valido = true;
-            else System.out.println("Hora invalida.");
+            if (hora >= 0 && hora <= 23)
+                valido = true;
+            else
+                System.out.println("Hora invalida.");
         } while (!valido);
 
         valido = false;
@@ -193,8 +199,10 @@ public class ProgramasListas {
             System.out.print("Agora insira os minutos: ");
             minuto = sc.nextInt();
             sc.nextLine();
-            if (minuto >= 0 && minuto <= 59) valido = true;
-            else System.out.println("Minutos invalidos.");
+            if (minuto >= 0 && minuto <= 59)
+                valido = true;
+            else
+                System.out.println("Minutos invalidos.");
         } while (!valido);
 
         return String.format("%02d:%02d", hora, minuto);
@@ -237,12 +245,16 @@ public class ProgramasListas {
             System.out.println("| [A] - Adicionar | [E] - Editar/Ler | [R] - Remover | [S] - Sair");
             System.out.print("Selecione: ");
             String input = sc.nextLine().trim();
-            if(input.isEmpty()) continue;
+            if (input.isEmpty())
+                continue;
             menuAER = Character.toUpperCase(input.charAt(0));
 
             switch (menuAER) {
                 case 'A':
-                    if (qtd >= 100) { System.out.println("Lista cheia!"); break; }
+                    if (qtd >= 100) {
+                        System.out.println("Lista cheia!");
+                        break;
+                    }
                     System.out.print("Titulo: ");
                     titulos[qtd] = sc.nextLine().trim();
                     System.out.print("Data (ex: 11/06/2025): ");
@@ -260,15 +272,18 @@ public class ProgramasListas {
                         System.out.println("Texto Atual: " + textos[posE]);
                         System.out.print("Novo Titulo (ou enter para manter): ");
                         String nTit = sc.nextLine().trim();
-                        if(!nTit.isEmpty()) titulos[posE] = nTit;
+                        if (!nTit.isEmpty())
+                            titulos[posE] = nTit;
 
                         System.out.print("Nova Data (ou enter para manter): ");
                         String nDat = sc.nextLine().trim();
-                        if(!nDat.isEmpty()) datas[posE] = nDat;
+                        if (!nDat.isEmpty())
+                            datas[posE] = nDat;
 
                         System.out.print("Novo Texto (ou enter para manter): ");
                         String nTex = sc.nextLine().trim();
-                        if(!nTex.isEmpty()) textos[posE] = nTex;
+                        if (!nTex.isEmpty())
+                            textos[posE] = nTex;
 
                         salvarAnotacoes(titulos, datas, textos, qtd);
                     } else {
@@ -334,18 +349,23 @@ public class ProgramasListas {
         do {
             System.out.println("--- LISTA DE COMPROMISSOS ---");
             for (int i = 0; i < qtd; i++) {
-                System.out.printf("[%d] - | %s | %s | %s | %s%n", i + 1, listaHorario[i], listaNome[i], listaLocal[i], listaDesc[i]);
+                System.out.printf("[%d] - | %s | %s | %s | %s%n", i + 1, listaHorario[i], listaNome[i], listaLocal[i],
+                        listaDesc[i]);
             }
             System.out.println("==================================================");
             System.out.println("| [A] - Adicionar | [E] - Editar | [R] - Remover | [S] - Sair");
             System.out.print("Selecione: ");
             String input = sc.nextLine().trim();
-            if(input.isEmpty()) continue;
+            if (input.isEmpty())
+                continue;
             menuAER = Character.toUpperCase(input.charAt(0));
 
             switch (menuAER) {
                 case 'A':
-                    if (qtd >= 100) { System.out.println("Lista cheia!"); break; }
+                    if (qtd >= 100) {
+                        System.out.println("Lista cheia!");
+                        break;
+                    }
                     System.out.print("Insira o nome do compromisso: ");
                     listaNome[qtd] = sc.nextLine().trim();
                     listaHorario[qtd] = lerRelogio(sc);
@@ -400,7 +420,8 @@ public class ProgramasListas {
         } while (menuAER != 'S');
     }
 
-    private static void salvarCompromissos(String[] listaHorario, String[] listaNome, String[] listaLocal, String[] listaDesc, int qtd) {
+    private static void salvarCompromissos(String[] listaHorario, String[] listaNome, String[] listaLocal,
+            String[] listaDesc, int qtd) {
         String[] dados = new String[qtd];
         for (int i = 0; i < qtd; i++) {
             dados[i] = listaHorario[i] + ";" + listaNome[i] + ";" + listaLocal[i] + ";" + listaDesc[i];
@@ -428,8 +449,12 @@ public class ProgramasListas {
         }
 
         if (qtd == 0) {
-            nomes[0] = "SUS (Saude)"; telefones[0] = "136"; bloqueados[0] = true;
-            nomes[1] = "Policia"; telefones[1] = "190"; bloqueados[1] = true;
+            nomes[0] = "SUS (Saude)";
+            telefones[0] = "136";
+            bloqueados[0] = true;
+            nomes[1] = "Policia";
+            telefones[1] = "190";
+            bloqueados[1] = true;
             qtd = 2;
             salvarContatos(nomes, telefones, bloqueados, qtd);
         }
@@ -444,12 +469,16 @@ public class ProgramasListas {
             System.out.println("| [A] - Adicionar | [E] - Editar | [R] - Remover | [S] - Sair");
             System.out.print("Selecione: ");
             String input = sc.nextLine().trim();
-            if(input.isEmpty()) continue;
+            if (input.isEmpty())
+                continue;
             menuAER = Character.toUpperCase(input.charAt(0));
 
             switch (menuAER) {
                 case 'A':
-                    if (qtd >= 100) { System.out.println("Lista cheia!"); break; }
+                    if (qtd >= 100) {
+                        System.out.println("Lista cheia!");
+                        break;
+                    }
                     System.out.print("Nome: ");
                     nomes[qtd] = sc.nextLine().trim();
                     System.out.print("Telefone: ");
@@ -549,12 +578,16 @@ public class ProgramasListas {
             System.out.println("| [A] - Adicionar | [E] - Marcar Comprado/Editar | [R] - Remover | [S] - Sair");
             System.out.print("Selecione: ");
             String input = sc.nextLine().trim();
-            if(input.isEmpty()) continue;
+            if (input.isEmpty())
+                continue;
             menuAER = Character.toUpperCase(input.charAt(0));
 
             switch (menuAER) {
                 case 'A':
-                    if (qtd >= 100) { System.out.println("Lista cheia!"); break; }
+                    if (qtd >= 100) {
+                        System.out.println("Lista cheia!");
+                        break;
+                    }
                     System.out.print("Nome do produto: ");
                     nomes[qtd] = sc.nextLine().trim();
                     System.out.print("Quantidade: ");
@@ -567,7 +600,8 @@ public class ProgramasListas {
                     System.out.print("Escolha: ");
                     int catCod = sc.nextInt();
                     sc.nextLine();
-                    categorias[qtd] = (catCod==1)?"Alimento":((catCod==2)?"Higiene":((catCod==3)?"Limpeza":"Outros"));
+                    categorias[qtd] = (catCod == 1) ? "Alimento"
+                            : ((catCod == 2) ? "Higiene" : ((catCod == 3) ? "Limpeza" : "Outros"));
 
                     System.out.println("Prioridade:");
                     System.out.println("[1] - Baixa");
@@ -576,7 +610,7 @@ public class ProgramasListas {
                     System.out.print("Escolha: ");
                     int priCod = sc.nextInt();
                     sc.nextLine();
-                    prioridades[qtd] = (priCod==3)?"Alta":((priCod==2)?"Media":"Baixa");
+                    prioridades[qtd] = (priCod == 3) ? "Alta" : ((priCod == 2) ? "Media" : "Baixa");
                     status[qtd] = "N";
                     qtd++;
                     salvarCompras(nomes, qtds, categorias, prioridades, status, qtd);
@@ -630,7 +664,8 @@ public class ProgramasListas {
         } while (menuAER != 'S');
     }
 
-    private static void salvarCompras(String[] nomes, String[] qtds, String[] categorias, String[] prioridades, String[] status, int qtd) {
+    private static void salvarCompras(String[] nomes, String[] qtds, String[] categorias, String[] prioridades,
+            String[] status, int qtd) {
         String[] dados = new String[qtd];
         for (int i = 0; i < qtd; i++) {
             dados[i] = nomes[i] + ";" + qtds[i] + ";" + categorias[i] + ";" + prioridades[i] + ";" + status[i];

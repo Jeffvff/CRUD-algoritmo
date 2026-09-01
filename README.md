@@ -128,10 +128,6 @@ Durante o desenvolvimento foram utilizados os seguintes conceitos:
 Projeto desenvolvido por:
 
 * Jeferson
-* Nathalia
-* Arthur
-* Marcelo
-* Thales
 
 ---
 
